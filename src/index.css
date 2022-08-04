@@ -1,13 +1,39 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+   background-color: hsl(180, 52%, 96%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.head{
+   background-image: url('./assets/bg-header-desktop.svg');
+   background-color: #5ba4a4;
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+.job-details-list { 
+   padding:0; 
+   text-align:left;
+   margin: 0;
+}
+.job-details-list li { 
+   display:inline;
+   white-space: nowrap;
+}
+.job-details-list li:after {
+   content: " ";
+   word-spacing: 2.5em;
+   background-repeat: no-repeat;
+   background-position: 50% 60%;
+   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwAAADsABataJCQAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMkMEa+wAAAAnSURBVBhXY/Dz89MA4sNA/B9Ka4AEYQIwfBgkiCwAxjhVopnppwEApxQqhnyQ+VkAAAAASUVORK5CYII=);
+}
+@media (max-width: 450px) {
+   .job-details-list li:after {
+   word-spacing: 1.75em;
+}
+}
+.green-border{
+   border-color: #5ba4a4;
 }
