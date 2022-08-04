@@ -1,5 +1,7 @@
 import React from "react";
 import ProfileImage from "./ProfileImage";
+import { useDispatch } from "react-redux";
+import { addTag } from "../redux/FilterSlice";
 
 interface ProfileInterface {
 	profile: {
@@ -31,6 +33,11 @@ const Profile: React.FC<ProfileInterface> = ({ profile }) => {
 		languages,
 		tools,
 	} = profile;
+	const dispatch = useDispatch();
+	const addSingleTag = (key: string, bracket: string) => {
+		const newTag = { key, bracket };
+		dispatch(addTag(newTag));
+	};
 	return (
 		<div
 			className={`bg-white rounded-lg py-6 px-10 flex items-center hover:scale-105 transition ease-in-out justify-between shadow-md hover:shadow-lg border-l-[6px] border-l-white ${
@@ -68,10 +75,14 @@ const Profile: React.FC<ProfileInterface> = ({ profile }) => {
 			</div>
 			<hr className='hidden sm:block text-xl' />
 			<div className='my-auto flex items-center gap-3 flex-wrap justify-end lg:justify-start sm:text-sm'>
-				<span className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'>
+				<span
+					className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'
+					onClick={() => addSingleTag(role, "Role")}>
 					{role}
 				</span>
-				<span className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'>
+				<span
+					className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'
+					onClick={() => addSingleTag(level, "Level")}>
 					{level}
 				</span>
 				{languages.length > 0 &&
@@ -79,7 +90,8 @@ const Profile: React.FC<ProfileInterface> = ({ profile }) => {
 						return (
 							<span
 								className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'
-								key={index}>
+								key={index}
+								onClick={() => addSingleTag(language, "Languages")}>
 								{language}
 							</span>
 						);
@@ -89,7 +101,8 @@ const Profile: React.FC<ProfileInterface> = ({ profile }) => {
 						return (
 							<span
 								className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'
-								key={index}>
+								key={index}
+								onClick={() => addSingleTag(tool, "Tools")}>
 								{tool}
 							</span>
 						);

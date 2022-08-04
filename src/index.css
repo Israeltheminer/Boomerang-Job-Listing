@@ -31,8 +31,13 @@ body{
 }
 @media (max-width: 450px) {
    .job-details-list li:after {
-   word-spacing: 1.75em;
+      word-spacing: 1.75em;
+   }
 }
+@media (max-width: 650px) {
+   .head{
+      background-image: url('./assets/bg-header-mobile.svg');
+   }
 }
 .green-border{
    border-color: #5ba4a4;
