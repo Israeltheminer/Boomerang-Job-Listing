@@ -47,21 +47,21 @@ const Profile: React.FC<ProfileInterface> = ({ profile }) => {
 				<ProfileImage name={company} />
 				<div className='mx-6 max-w-[350px] md:mx-0'>
 					<div className='flex items-center gap-4 flex-wrap'>
-						<span className='text-[#62aaaa] font-semibold'>{company}</span>
+						<span className='text-[#62aaaa] font-medium'>{company}</span>
 						<div className='flex items-center gap-2'>
 							{profile.new && (
-								<span className='bg-[#62aaaa] rounded-3xl py-1 px-3 text-white font-medium text-[12px]'>
+								<span className='bg-[#62aaaa] rounded-3xl pt-[4px] px-3 text-white font-medium text-[12px]'>
 									NEW!
 								</span>
 							)}
 							{featured && (
-								<span className='bg-[#2c3a3a] rounded-3xl py-1 px-3 text-white font-medium text-[12px]'>
+								<span className='bg-[#2c3a3a] rounded-3xl pt-[4px] px-3 text-white font-medium text-[12px]'>
 									FEATURED
 								</span>
 							)}
 						</div>
 					</div>
-					<h3 className='text-2xl font-semibold my-2 hover:text-[#62aaaa] cursor-pointer transition ease-in-out md:text-[22px] sm:text-[18px]'>
+					<h3 className='text-2xl font-medium my-2 hover:text-[#62aaaa] cursor-pointer transition ease-in-out md:text-[22px] sm:text-[18px]'>
 						{position}
 					</h3>
 					<div className=''>
@@ -74,14 +74,14 @@ const Profile: React.FC<ProfileInterface> = ({ profile }) => {
 				</div>
 			</div>
 			<hr className='hidden sm:block text-xl' />
-			<div className='my-auto flex items-center gap-3 flex-wrap justify-end lg:justify-start sm:text-sm'>
+			<div className='my-auto flex items-center gap-3 flex-wrap justify-end lg:justify-start sm:text-sm font-medium'>
 				<span
-					className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'
+					className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white transition ease-in-out'
 					onClick={() => addSingleTag(role, "Role")}>
 					{role}
 				</span>
 				<span
-					className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'
+					className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white transition ease-in-out'
 					onClick={() => addSingleTag(level, "Level")}>
 					{level}
 				</span>
@@ -89,7 +89,7 @@ const Profile: React.FC<ProfileInterface> = ({ profile }) => {
 					languages.map((language, index) => {
 						return (
 							<span
-								className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'
+								className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white transition ease-in-out'
 								key={index}
 								onClick={() => addSingleTag(language, "Languages")}>
 								{language}
@@ -100,7 +100,7 @@ const Profile: React.FC<ProfileInterface> = ({ profile }) => {
 					tools.map((tool, index) => {
 						return (
 							<span
-								className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white font-semibold transition ease-in-out'
+								className='rounded-[4px] bg-[#e7f9f9] text-[#62aaaa] py-1 px-3 cursor-pointer hover:bg-[#62aaaa] hover:text-white transition ease-in-out'
 								key={index}
 								onClick={() => addSingleTag(tool, "Tools")}>
 								{tool}

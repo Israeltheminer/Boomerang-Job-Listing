@@ -34,7 +34,7 @@ const Main: React.FC = () => {
 								tags.map((tag, index) => {
 									return (
 										<span
-											className='rounded-[4px] bg-[#e7f9f9] font-semibold transition ease-in-out inline-flex justify-between'
+											className='rounded-[4px] bg-[#e7f9f9] transition ease-in-out inline-flex justify-between'
 											key={index}>
 											<span className='inline py-1 px-3 text-[#62aaaa]'>{tag.key}</span>
 											<span
