@@ -14,9 +14,6 @@ const Main: React.FC = () => {
 	const removeSingleTag = (tag: { key: string; bracket: string }) => {
 		dispatch(removeTag(tag));
 	};
-	const clearAllTags = () => {
-		dispatch(clearTags());
-	};
 	useEffect(() => {
 		tags.length === 0 ? dispatch(resetProfiles()) : dispatch(filter(tags));
 	}, [tags, dispatch]);
@@ -48,7 +45,7 @@ const Main: React.FC = () => {
 						</div>
 						<span
 							className='text-[#62aaaa] font-bold hover:underline cursor-pointer ml-4'
-							onClick={(): void => clearAllTags()}>
+							onClick={(): { payload: undefined; type: string } => dispatch(clearTags())}>
 							Clear
 						</span>
 					</div>

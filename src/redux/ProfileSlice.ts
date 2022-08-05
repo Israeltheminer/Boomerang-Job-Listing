@@ -48,9 +48,6 @@ export const ProfileSlice = createSlice({
 			state.profiles = data;
 		},
 		filter: (state, action: PayloadAction<AllTags>) => {
-			let allTags = action.payload;
-			let previousProfiles = state.profiles;
-			let initialProfiles = data;
 			let filteredResult: ResultType | any;
 			const filterTag = (tag: tags, profiles: ResultType): ResultType => {
 				let result: ResultType | any;
@@ -91,12 +88,17 @@ export const ProfileSlice = createSlice({
 				}
 				return result;
 			};
+			let allTags = action.payload;
+			let initialProfiles = data;
+			let previousProfiles: ResultType | any;
 			for (let i = 0; i < allTags.length; i++) {
 				let tag = allTags[i];
 				if (i === 0) {
 					filteredResult = filterTag(tag, initialProfiles);
+					previousProfiles = filteredResult;
 				} else {
 					filteredResult = filterTag(tag, previousProfiles);
+					previousProfiles = filteredResult;
 				}
 			}
 			state.profiles = filteredResult;
